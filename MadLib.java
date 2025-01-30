@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -20,12 +20,23 @@ public class MadLib
 
 	public MadLib()
 	{
-
+		verbs.add("punched");
+		nouns.add("Wal-Mart");
+		adjectives.add("massive");
+		story="I punched Wal-Mart in a massive way.";
 	}
 
 	public MadLib(String fileName)
 	{
 		//load stuff
+		loadNouns();
+		loadAdjectives();
+		loadVerbs();
+		
+		//First read from story.dat (one string) you need a second scanner to chop up the string after that 
+		//Once you have a string from the string you will check if it's any of the 3 sybols (#,&,@) else it wasn't a word 
+		//concatinate it back onto the story you cannot do has.next & has ore than once it will reak it
+		//you HAVE to use a variable 
 
 		try
 		{
@@ -37,7 +48,7 @@ public class MadLib
 
 				//If what was read in is one of the symbols, find a random
 				//word to replace it.
-			}
+			
 
 
 		}
@@ -52,7 +63,12 @@ public class MadLib
 	{
 		try
 		{
-
+			Scanner reader = new Scanner(new File("nouns.dat"));
+			
+			while(reader.hasNext())
+			{
+				nouns.add(reader.next());
+			}
 		}
 		catch(Exception e)
 		{
@@ -65,6 +81,12 @@ public class MadLib
 	{
 		try
 		{
+			Scanner readers = new Scanner(new File("nouns.dat"));
+			
+			while(readers.hasNext())
+			{
+				nouns.add(readers.next());
+			}
 
 		}
 		catch(Exception e)
@@ -77,6 +99,12 @@ public class MadLib
 	{
 		try
 		{
+			Scanner reading = new Scanner(new File("nouns.dat"));
+			
+			while(reading.hasNext())
+			{
+				nouns.add(reading.next());
+			}
 
 		}
 		catch(Exception e)
@@ -87,21 +115,22 @@ public class MadLib
 
 	public String getRandomVerb()
 	{
-		return "";
+
+		return ""+ verbs;
 	}
 
 	public String getRandomNoun()
 	{
-		return "";
+		return "" + nouns;
 	}
 
 	public String getRandomAdjective()
 	{
-		return "";
+		return "" + adjectives;
 	}
 
 	public String toString()
 	{
-		return "";
+		return ""+ story;
 	}
 }
